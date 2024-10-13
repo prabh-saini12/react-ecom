@@ -1,6 +1,11 @@
+import Navbar from "./components/Navbar"
+import ProductCard from "./components/ProductCard"
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+    <Navbar />
+    <ProductCard/>
+    </div>
   )
 }
 
