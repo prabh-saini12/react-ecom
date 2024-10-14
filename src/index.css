@@ -27,3 +27,14 @@
 .product .product-img {
   width: 200px;
 }
+
+.button{
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color:white;
+}
+.button:hover {
+  background-color: #000;
+  color: #fff;
+}
