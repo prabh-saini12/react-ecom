@@ -1,21 +1,50 @@
-import Product from "./Product";
 import { useEffect, useState } from "react";
+import Product from "./Product";
+import Shimmer from "./Shimmer";
 
 const ProductCard = () => {
   const [listOfProduct, setListOfProduct] = useState([]);
+  const [filterProduct, setFilterProduct] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   const fetchData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
     const json = await response.json();
     setListOfProduct(json);
+    setFilterProduct(json);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  return (
+  // conditional rendering
+
+  return listOfProduct.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div>
+      <div style={{ marginTop: "10px" }}>
+        <input
+          type="text"
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+          value={searchText}
+        />
+        <button
+          onClick={() => {
+            const filteredData = listOfProduct.filter((product) => {
+              return product.title
+                .toLowerCase()
+                .includes(searchText.toLowerCase());
+            });
+            setFilterProduct(filteredData);
+          }}
+        >
+          Search
+        </button>
+      </div>
       <button
         className="button"
         onClick={() => {
@@ -28,7 +57,7 @@ const ProductCard = () => {
         Top Rated Product
       </button>
       <div className="product-card">
-        {listOfProduct.map((product, index) => {
+        {filterProduct.map((product, index) => {
           return <Product key={index} productlist={product} />;
         })}
       </div>

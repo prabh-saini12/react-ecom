@@ -28,13 +28,24 @@
   width: 200px;
 }
 
-.button{
+.button {
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  background-color:white;
+  background-color: white;
 }
 .button:hover {
   background-color: #000;
   color: #fff;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-container > .shimmer {
+  width: 200px;
+  height: 400px;
+  margin: 10px;
+  background-color: #f0f0f0f0;
 }
