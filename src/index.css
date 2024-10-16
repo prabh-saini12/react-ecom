@@ -7,9 +7,18 @@
   display: flex;
 }
 
-.navbar > ul > li {
+.navbar > ul > li{
+  list-style: none;
+}
+
+.navbar > ul > .link > li {
   list-style: none;
   margin-right: 10px;
+}
+.link{
+  text-decoration: none;
+  color: darkblue;
+  list-style: none;
 }
 
 .product-card {
