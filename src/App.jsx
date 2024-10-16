@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import ProductCard from "./components/ProductCard";
 import Kids from "./components/Kids";
 import Mens from "./components/Mens";
+import ProductDetails from "./components/ProductDetails";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 
 const App = () => {
@@ -29,6 +30,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/men",
         element: <Mens />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />,
       },
     ],
   },

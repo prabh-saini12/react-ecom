@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const ProductCard = () => {
   const [listOfProduct, setListOfProduct] = useState([]);
@@ -57,8 +58,12 @@ const ProductCard = () => {
         Top Rated Product
       </button>
       <div className="product-card">
-        {filterProduct.map((product, index) => {
-          return <Product key={index} productlist={product} />;
+        {filterProduct.map((product) => {
+          return (
+            <Link key={product.id} to={`/product/${product.id}`} >
+              <Product productlist={product} />
+            </Link>
+          );
         })}
       </div>
     </div>
